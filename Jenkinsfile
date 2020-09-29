@@ -1,5 +1,6 @@
 
-de{
+node{
+
     
     stage('Git checkout'){
         git credentialsId: '3bd3ecc8-f093-41d3-9e51-06e8cb752351', url: 'https://github.com/avishekdevops/Web_app_bootcamp.git'
@@ -48,7 +49,7 @@ de{
 	    def dockerInstall = 'sudo apt install docker.io -y'
         def dockerVersion = 'docker --version'
         def dockerStart = 'sudo systemctl start docker'
-        def dockerrun = 'docker run -p 9050:8080 -d amodak/bootcamp_webapp:1.7'
+        def dockerrun = 'sudo docker run -p 9050:8080 -d amodak/bootcamp_webapp:1.7'
 
         sh "ssh -o StrictHostKeyChecking=no ubuntu@${ipAddress} ${update}"
         sh "ssh -o StrictHostKeyChecking=no ubuntu@${ipAddress} ${dockerInstall}"
